@@ -1,0 +1,12 @@
+node_modules/
+dist/
+backups/
+data/dashboard.json
+public/uploads/icons/*
+public/uploads/wallpapers/*
+!public/uploads/icons/.gitkeep
+!public/uploads/wallpapers/.gitkeep
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

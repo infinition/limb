@@ -1,0 +1,15 @@
+services:
+  home-dashboard:
+    build: .
+    container_name: limb
+    restart: unless-stopped
+    ports:
+      - "8090:3001"
+    volumes:
+      - /volume1/docker/limb/data:/app/data
+      - /volume1/docker/limb/backups:/app/backups
+      - /volume1/docker/limb/gallery:/app/gallery
+      - /volume1/docker/limb/uploads:/app/public/uploads
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
