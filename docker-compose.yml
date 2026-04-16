@@ -4,7 +4,7 @@ services:
     container_name: limb
     restart: unless-stopped
     ports:
-      - "8090:3001"
+      - "3001:3001"
     volumes:
       - /volume1/docker/limb/data:/app/data
       - /volume1/docker/limb/backups:/app/backups

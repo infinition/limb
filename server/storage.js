@@ -312,5 +312,9 @@ export async function ensureDataFile() {
     ensureDirectory(wallpapersDir),
     ensureDirectory(backupsDir)
   ]);
-  await fs.access(dataFile);
+  try {
+    await fs.access(dataFile);
+  } catch {
+    await writeJson(dataFile, { pages: [], settings: {} });
+  }
 }
