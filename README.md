@@ -69,75 +69,89 @@ home_dashboard/
 
 ## Getting Started
 
-### Prerequisites
+### Docker (recommended)
 
-- Node.js 20+
-- npm 9+
+No need to clone the repository. Just create a `docker-compose.yml` anywhere on your machine:
+
+```yaml
+services:
+  limb:
+    image: ghcr.io/infinition/limb:latest
+    container_name: limb
+    restart: unless-stopped
+    ports:
+      - "8090:3001"
+    volumes:
+      - ./data:/app/data
+      - ./backups:/app/backups
+      - ./gallery:/app/gallery
+      - ./uploads:/app/public/uploads
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+```
+
+Then run:
+
+```bash
+docker compose up -d
+```
+
+That's it. The dashboard is accessible at `http://<host>:8090`.
+
+To update to the latest version:
+
+```bash
+docker compose pull && docker compose up -d
+```
+
+<details>
+<summary><strong>Optional: automatic updates with Watchtower</strong></summary>
+
+Add this service to your `docker-compose.yml` to automatically pull new versions every 5 minutes:
+
+```yaml
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower-limb
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - WATCHTOWER_CLEANUP=true
+      - WATCHTOWER_POLL_INTERVAL=300
+    command: limb
+```
+
+</details>
+
+<details>
+<summary><strong>NAS / custom volume paths</strong></summary>
+
+If your data directory is elsewhere (e.g. Synology NAS), adjust the volume paths:
+
+```yaml
+    volumes:
+      - /volume1/docker/limb/data:/app/data
+      - /volume1/docker/limb/backups:/app/backups
+      - /volume1/docker/limb/gallery:/app/gallery
+      - /volume1/docker/limb/uploads:/app/public/uploads
+```
+
+</details>
 
 ### Local Development
 
+For contributors who want to work on the code:
+
 ```bash
-git clone https://github.com/<your-username>/limb.git
+git clone https://github.com/infinition/limb.git
 cd limb
 npm install
 npm run dev
 ```
 
 This starts both the Express API on `http://localhost:3001` and the Vite dev server on `http://localhost:5173`.
-
-### Production Build
-
-```bash
-npm run build
-npm start
-```
-
-The app is served entirely from Express on port `3001` (or `PORT` env var).
-
-## Docker Deployment
-
-### Build & Run
-
-```bash
-docker compose up -d --build
-```
-
-The dashboard is accessible at `http://<host>:8090`.
-
-### Synology NAS
-
-1. Copy the project files to your NAS (via SSH, File Station, or git clone).
-2. Create the persistent directories:
-   ```bash
-   mkdir -p /volume1/docker/home-dashboard/{data,backups,gallery,uploads/icons,uploads/wallpapers}
-   ```
-3. Place your `dashboard.json` in `/volume1/docker/home-dashboard/data/` (or let the app create a default one).
-4. Build and start:
-   ```bash
-   cd /path/to/home-dashboard
-   docker compose up -d --build
-   ```
-5. Access at `http://<nas-ip>:8090`.
-
-### Docker Compose Configuration
-
-```yaml
-services:
-  home-dashboard:
-    build: .
-    container_name: home-dashboard
-    restart: unless-stopped
-    ports:
-      - "8090:3001"
-    volumes:
-      - /volume1/docker/home-dashboard/data:/app/data
-      - /volume1/docker/home-dashboard/backups:/app/backups
-      - /volume1/docker/home-dashboard/gallery:/app/gallery
-      - /volume1/docker/home-dashboard/uploads:/app/public/uploads
-    environment:
-      - NODE_ENV=production
-      - PORT=3001
-```
 
 ### Environment Variables
 
