@@ -4,6 +4,11 @@ A self-hosted iOS springboard-style dashboard for your home services. Organize a
 
 ![React](https://img.shields.io/badge/React-18-blue) ![Vite](https://img.shields.io/badge/Vite-5-purple) ![Express](https://img.shields.io/badge/Express-4-green) ![Docker](https://img.shields.io/badge/Docker-ready-blue)
 
+
+<img width="1015" height="913" alt="image" src="https://github.com/user-attachments/assets/6fcf22c9-1cec-44ab-bba2-169d29c43d0c" />
+
+<img width="537" height="1130" alt="image" src="https://github.com/user-attachments/assets/d0a0362f-6c69-4c60-8df4-c8b102cb0032" />
+
 ---
 
 ## Features
@@ -200,3 +205,13 @@ Widgets can also be imported directly from the Settings panel.
 ## License
 
 MIT
+
+## Star History
+
+<a href="https://www.star-history.com/?repos=infinition%2Flimb&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=infinition/limb&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=infinition/limb&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=infinition/limb&type=date&legend=top-left" />
+ </picture>
+</a>
