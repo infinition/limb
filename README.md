@@ -1,5 +1,7 @@
 # Limb
 
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) ![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black) ![Node](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white) [![Release](https://img.shields.io/github/v/release/infinition/limb?style=flat)](https://github.com/infinition/limb/releases) [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=flat&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/infinition)
+
 A self-hosted iOS springboard-style dashboard for your home services. Organize apps, bookmarks and widgets on a paginated grid with drag-and-drop, search and full JSON persistence.
 
 ![React](https://img.shields.io/badge/React-18-blue) ![Vite](https://img.shields.io/badge/Vite-5-purple) ![Express](https://img.shields.io/badge/Express-4-green) ![Docker](https://img.shields.io/badge/Docker-ready-blue)
